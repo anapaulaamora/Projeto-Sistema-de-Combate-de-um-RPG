@@ -13,7 +13,7 @@ public class Adversario {
     Dados dados = new Dados();
 
 
-    private void primeirosViloes(){
+    public void primeirosViloes(){
 
 
            System.out.println("Historia.....");
@@ -141,7 +141,7 @@ public class Adversario {
 
 
 
-    private void ultimoVilao(){
+    public void ultimoVilao(){
 
 
         System.out.println("Historia.....");
