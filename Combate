@@ -1,54 +1,52 @@
 import java.util.Scanner;
 
 public class Combate {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
+    private Jogador jogador; // Jogador deve ser instanciado em algum lugar
+    private Adversario adversario; // O mesmo para o adversário
+    private Turnos turnos = new Turnos(); // Inicializando o objeto Turnos
+    private Vida vida = new Vida(); // Certifique-se de que a classe Vida está corretamente inicializada
+    private Jogo jogo = new Jogo();
 
-    Jogador jogador = new Jogador();
-    Adversario adversario = new Adversario();
-    Turnos turnos;
-    Vida vida =  new Vida();
-    jogo Jogo = new jogo();
+    private int rodada = 0;
 
-    int rodada = 0;
+    public Combate(Jogador jogador, Adversario adversario) {
+        this.jogador = jogador;
+        this.adversario = adversario;
+    }
 
     public void iniciarCombate() {
         while (true) {
             System.out.println("-----------INICIANDO COMBATE----------");
 
             if (jogador.getAgilidade() > adversario.getAgilidade()) {
-                turnos.turnoJogador(); // Chamar o turno do jogador
+                turnos.turnoJogador();
 
                 if (adversario.getVida() <= 0) {
-                    System.out.println("Você venceu o combate contra " + adversario.getAdversario() + "!");
+                    System.out.println("Você venceu o combate contra " + adversario.getNome() + "!");
                     break;
                 }
 
-                turnos.turnoAdversario(); // Chamar o turno do adversário
+                turnos.turnoAdversario();
 
                 if (vida.getPontosVida() <= 0) {
-                    System.out.println("Você foi derrotado por " + adversario.getAdversario() + "!");
+                    System.out.println("Você foi derrotado por " + adversario.getNome() + "!");
+                    jogo.gamerover();
+                    break;
+                }
+            } else {
+                turnos.turnoAdversario();
 
-
-                    Jogo.gamerover();
+                if (vida.getPontosVida() <= 0) {
+                    System.out.println("Você foi derrotado por " + adversario.getNome() + "!");
+                    jogo.gamerover();
                     break;
                 }
 
-
-            } 
-               else {
-                turnos.turnoAdversario(); // Adversário ataca primeiro
-
-                if (vida.getPontosVida()<= 0) {
-                    System.out.println("Você foi derrotado por " + adversario.getAdversario() + "!");
-
-                    Jogo.gamerover();
-                    break;
-                }
-
-                turnos.turnoJogador(); // Depois o jogador ataca
+                turnos.turnoJogador();
 
                 if (adversario.getVida() <= 0) {
-                    System.out.println("Você venceu o combate contra " + adversario.getAdversario() + "!");
+                    System.out.println("Você venceu o combate contra " + adversario.getNome() + "!");
                     break;
                 }
             }
@@ -57,9 +55,7 @@ public class Combate {
         }
     }
 
-    public int getRodada(){
-
-      return rodada;
+    public int getRodada() {
+        return rodada;
     }
-
 }
