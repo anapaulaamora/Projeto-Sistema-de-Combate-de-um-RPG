@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class Combate {
+    Scanner input = new Scanner(System.in);
+
+    Jogador jogador = new Jogador();
+    Adversario adversario = new Adversario();
+    Turnos turnos;
+    Vida vida =  new Vida();
+    jogo Jogo = new jogo();
+
+    int rodada = 0;
+
+    public void iniciarCombate() {
+        while (true) {
+            System.out.println("-----------INICIANDO COMBATE----------");
+
+            if (jogador.getAgilidade() > adversario.getAgilidade()) {
+                turnos.turnoJogador(); // Chamar o turno do jogador
+
+                if (adversario.getVida() <= 0) {
+                    System.out.println("Você venceu o combate contra " + adversario.getAdversario() + "!");
+                    break;
+                }
+
+                turnos.turnoAdversario(); // Chamar o turno do adversário
+
+                if (vida.getPontosVida() <= 0) {
+                    System.out.println("Você foi derrotado por " + adversario.getAdversario() + "!");
+
+
+                    Jogo.gamerover();
+                    break;
+                }
+
+
+            } 
+               else {
+                turnos.turnoAdversario(); // Adversário ataca primeiro
+
+                if (vida.getPontosVida()<= 0) {
+                    System.out.println("Você foi derrotado por " + adversario.getAdversario() + "!");
+
+                    Jogo.gamerover();
+                    break;
+                }
+
+                turnos.turnoJogador(); // Depois o jogador ataca
+
+                if (adversario.getVida() <= 0) {
+                    System.out.println("Você venceu o combate contra " + adversario.getAdversario() + "!");
+                    break;
+                }
+            }
+
+            rodada++;
+        }
+    }
+
+    public int getRodada(){
+
+      return rodada;
+    }
+
+}
