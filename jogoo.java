@@ -4,14 +4,11 @@ import java.util.List;
 import java.util.Random;
 
 
-
-
-public class Jogo {
+public class jogo {
    private static Scanner scanner = new Scanner (System.in);
     public static void main (String[] args){
      
         exibirintro();
-
 
         while(true) { //escolhas
             Menu();
@@ -34,13 +31,10 @@ public class Jogo {
         }
 
 
-
-
     }
         private static void exibirintro(){ //intro do jogo
            
             final String AZUL = "\033[34m";
-            final String RESET = "\033[0m";
                
              System.out.println(AZUL + "                                                                                                   \r\n" + //
                                   "                       o       8                    8          8 8 8                           o  8 8 \r\n" + //
@@ -59,8 +53,6 @@ public class Jogo {
         }
 
 
-
-
         private static void Menu() { //menu do jogo
             System.out.println("Menu Principal:");
             System.out.println("1. Começar Jogo");
@@ -70,10 +62,7 @@ public class Jogo {
         }
 
 
-
-
         private static void Historia(){ //historia do jogo
-
 
             System.out.println("Esse jogo RPG ira se passar no universo ficticio de The Boys onde um super e contratado pela Vougth");
             System.out.println("No entanto, seu sonho e participar do grupo principal de supers, Os setes, dessa maneira, esta disposto");
@@ -85,11 +74,7 @@ public class Jogo {
         }
 
 
-
-
         private static void iniciarJogo(){
-
-
 
 
             System.out.println("------------ CRIE SEU JOGADOR --------------");
@@ -97,75 +82,59 @@ public class Jogo {
             jogador.criarPersonagem();
             System.out.println("//SEU PERSONGEM//\n " + jogador);
 
-
             System.out.println();
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
-
-
 
 
             System.out.println("------------ SELECIONE SEUS PODERES --------------");
             Arma arma = new Arma();
             arma.adicionarArma(jogador.getDestreza(), jogador.getForca());
 
-
             System.out.println();
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
-
-
 
 
             System.out.println("------------ SELECIONE SUA ARMADURA --------------");
             Armadura armadura = new Armadura();
             armadura.adicionarArmadura(jogador.getConstituicao());
 
-
             System.out.println();
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
-           
-
+            
 
             Vida vida = new Vida();
             vida.vida();
-
 
             System.out.println("//SEU PERSONAGEM//\n" + jogador);
             System.out.println("\n//SEU PODERES//\n" + arma);
             System.out.println("\n//SEU TRAJE //\n" + armadura);
             System.out.println("\n//SEUS PONTOS DE VIDA//\n" + vida.getPontosVida());
 
-
             System.out.println();
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
-           
-
+            
 
              primeiraHistoria();
 
 
-
-
-        }  
+        }   
        
         private static void limpar(){
-
 
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         }
 
+        private static Jogador jogador;
 
         private static void primeiraHistoria(){
-
-
-
 
             System.out.println("\n");
             System.out.println("   _____      _         _                                _           _                      __      __               _   _      ");
@@ -178,22 +147,20 @@ public class Jogo {
             System.out.println("           |__/                                                                                                |___/            ");
          
 
-
             System.out.println("\n voce,entrou na Vougth e nao aguenta mais as missoes secundarias que lhe dao voce esta atras do seu desejo de entrar nos Setes, voce descubriu que eles estao atras de um grupo que extermina supers, voce querendo visibilade e respeito vai atras deles");
             System.out.println();
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
 
+            Combate combate =  new Combate();
+            combate.iniciarCombate();
 
            }
 
-
         public void gamerover(){
 
-
             limpar();
-
 
             System.out.println("  _____          __  __ ______ _____     ______      ________ _____  ");
             System.out.println(" / ____|   /\\   |  \\/  |  ____|  __ \\   / __ \\ \\    / /  ____|  __ \\ ");
@@ -203,20 +170,11 @@ public class Jogo {
             System.out.println(" \\_____/_/    \\_\\_|  |_|______|_|  \\_\\  \\____/   \\/   |______|_|  \\_\\");
             System.out.println();
 
-
             System.out.println("Pressione Enter para voltar ao menu...");
             scanner.nextLine();
 
-
             limpar();
-
 
            
         }
-       
-
-
     }
-
-
-
