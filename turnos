@@ -1,0 +1,154 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Turnos {
+
+    Jogador jogador = new Jogador();
+    Adversario adversario;
+    Arma arma = new Arma();
+    Armadura armadura = new Armadura();
+    Vida vida = new Vida();
+
+    Scanner scanner = new Scanner(System.in);
+
+    public void turnoJogador(){
+
+
+                System.out.println("O que voce faz?");
+                System.out.println("1. Ataca");
+                System.out.println("2. Defende");
+                System.out.println("3. Usa pocao");
+                System.out.println("escolha sua opcao: ");
+                 
+                int selecionar= scanner.nextInt();
+                scanner.nextLine();
+
+                switch (selecionar) {
+                    case 1:
+
+                    int defesaAdversario1 = adversario.getDefesa();
+                    int defesaJogador1 = armadura.getDefesa();
+                    float danoArma = arma.getDano(); // Obter dano da arma
+                    int vidaAdversario = adversario.getVida(); // Supondo que você tenha um método getVida()
+
+                    if(defesaAdversario1 < defesaJogador1){
+
+                        vidaAdversario -= danoArma;
+                        System.out.println("Você ataca! Dano causado: " + danoArma);
+                        adversario.setVida(vidaAdversario); // Método para atualizar a vida do adversário
+                        
+                    }
+                    else{
+
+                        System.out.println("Seu adversario se defendeu");
+                    }
+                        break;
+
+                    case 2:
+                    int defesaAdversario = adversario.getDefesa(); // Defesa do adversário
+                    int danoAdversario = adversario.getDano();
+                    int defesajogador = armadura.getDefesa();
+                   
+
+                    if( defesajogador >= defesaAdversario){
+
+                        System.out.println("voce defendeu do ataque");
+                        vida.setVida(defesaAdversario);
+                    }
+                    else{
+
+                        int danoRecebido = danoAdversario; // O jogador recebe dano
+                        vida.setVida(vida.getPontosVida() - danoRecebido); // Atualizar a vida do jogador
+                        System.out.println("Você foi atacado! Dano recebido: " + danoRecebido);
+                        System.out.println("Vida do jogador: " + vida.getPontosVida());
+
+                    }
+
+                    break;
+
+                    case 3:
+                
+                    if (vida.getPontosVida() > 5 || (vida.getPontosVida() < 5 && (10 - vida.getPontosVida()) > 5)) {
+                        vida.setVida(vida.getPontosVida() + 5);
+                        System.out.println("Você usou uma poção! Vida restaurada para: " + vida.getPontosVida());
+                    } 
+                    else {
+                        System.out.println("Você não pode usar a poção agora!");
+                    }
+                    break;
+
+                    default:
+                        break;
+                }
+
+
+               
+            }
+
+
+    public void turnoAdversario(){
+
+            Random random = new Random();
+            int jogada = random.nextInt(3);
+
+            switch (jogada) {
+                case 0:
+                int danoAdversario = adversario.getDano(); // Dano do adversário
+                int vidaJogador = vida.getPontosVida(); // Vida do jogador
+
+                System.out.println("Seu adversario escolheu atacar!");
+                // Verifica se o jogador defendeu
+                if (armadura.getDefesa() < adversario.getDefesa()) {
+                    vida.setVida(vidaJogador - danoAdversario);
+                    System.out.println("O adversário atacou! Dano recebido: " + danoAdversario);
+                }
+                 else {
+                    System.out.println("Você defendeu o ataque do adversário!");
+                }
+                    break;
+
+                case 1:
+                int defesaAdversario2 = adversario.getDefesa();
+                int defesaJogador2 = armadura.getDefesa();
+
+                System.out.println("Seu adversario escolheu se defender!");
+
+                if(defesaAdversario2 > defesaJogador2){
+
+                    System.out.println("Seu adversario se defendeu");
+                }
+                else{
+                    
+                    int vidaJogador1= vida.getPontosVida();
+                    int danoAdversario1 = adversario.getDano();
+                    System.out.println("Seu adversario nao conseguiu se defender");
+
+                    vidaJogador1 -= danoAdversario1; // Aplica o dano
+                    vida.setVida(vidaJogador1);
+
+                }
+
+                break;
+
+                case 2:
+
+                if(adversario.getVida() > 5 || (adversario.getVida() < 5 && (10 - adversario.getVida()) > 5)){
+
+                    adversario.setVida(adversario.getVida() + 5);
+                    System.out.println("Você usou uma poção! Vida restaurada para: " + vida.getPontosVida());
+                } 
+                else {
+                    System.out.println("seu adversario não pode usar a poção agora!");
+                }
+                break;
+            
+                default:
+                    break;
+            }
+
+
+        }
+
+
+    }
+
