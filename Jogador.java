@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 class Jogador {
     private String nome;
     private int forca;
@@ -8,19 +7,12 @@ class Jogador {
     private int destreza;
     private int constituicao;
 
-
-
-
     public void criarPersonagem() {
         Scanner scanner = new Scanner(System.in);
 
 
-
-
         System.out.print("Digite o nome do seu personagem: ");
         this.nome = scanner.nextLine();
-
-
 
 
         System.out.print("\n-------------- ATRIBUTOS ---------------\n");
@@ -35,31 +27,34 @@ class Jogador {
             System.out.print("Constituição: ");
             this.constituicao = scanner.nextInt();
 
-
             if (forca + agilidade + destreza + constituicao == 15) {
                 break;
-           
+            
             } else {
                 System.out.println("A soma dos atributos deve ser igual a 15. Tente novamente.");
             }
         }
     }
 
-
     public int getForca() {
         return forca;
     }
-
 
     public int getDestreza() {
         return destreza;
     }
 
-
     public int getConstituicao(){
         return constituicao;
     }
 
+    public int getAgilidade(){
+        return agilidade;
+    }
+
+    public String getNome(){
+        return nome;
+    }
 
     @Override
     public String toString() {
