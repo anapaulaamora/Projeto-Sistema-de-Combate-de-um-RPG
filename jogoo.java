@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Random;
 
 
-public class jogo {
-   private static Scanner scanner = new Scanner (System.in);
+public class Jogo {
+   private static final Jogo jogo = null;
+private static Scanner scanner = new Scanner (System.in);
     public static void main (String[] args){
      
         exibirintro();
@@ -23,8 +24,29 @@ public class jogo {
                     Historia();
                     break;
                 case 3:
-                    System.out.println("Capitao Patria-SEU IMPRESTAVEL!");
-                    return;
+                    System.out.println("/============================================================================================\\\r\n" + //
+                                                "||  ____            _ _                ____       _        _            ____  _____ _   _   ||\r\n" + //
+                                                "|| / ___|__ _ _ __ (_) |_ __ _  ___   |  _ \\ __ _| |_ _ __(_) __ _     / ___|| ____| | | |  ||\r\n" + //
+                                                "||| |   / _` | '_ \\| | __/ _` |/ _ \\  | |_) / _` | __| '__| |/ _` |____\\___ \\|  _| | | | |  ||\r\n" + //
+                                                "||| |__| (_| | |_) | | || (_| | (_) | |  __/ (_| | |_| |  | | (_| |_____|__) | |___| |_| |  ||\r\n" + //
+                                                "|| \\____\\__,_| .__/|_|\\__\\__,_|\\___/  |_|   \\__,_|\\__|_|  |_|\\__,_|    |____/|_____|\\___/   ||\r\n" + //
+                                                "|| ___ __  __|_|__  ____  _____ ____ _____  ___     _______ _     _                         ||\r\n" + //
+                                                "|||_ _|  \\/  |  _ \\|  _ \\| ____/ ___|_   _|/ \\ \\   / / ____| |   | |                        ||\r\n" + //
+                                                "|| | || |\\/| | |_) | |_) |  _| \\___ \\ | | / _ \\ \\ / /|  _| | |   | |                        ||\r\n" + //
+                                                "|| | || |  | |  __/|  _ <| |___ ___) || |/ ___ \\ V / | |___| |___|_|                        ||\r\n" + //
+                                                "|||___|_|__|_|_|   |_| \\_\\_____|____/ |_/_/   \\_\\_/  |_____|_____(_)  _                     ||\r\n" + //
+                                                "||\\ \\   / /__   ___ ___   / _| ___  ___| |__   ___  _   _    ___     (_) ___   __ _  ___    ||\r\n" + //
+                                                "|| \\ \\ / / _ \\ / __/ _ \\ | |_ / _ \\/ __| '_ \\ / _ \\| | | |  / _ \\    | |/ _ \\ / _` |/ _ \\   ||\r\n" + //
+                                                "||  \\ V / (_) | (_|  __/ |  _|  __/ (__| | | | (_) | |_| | | (_) |   | | (_) | (_| | (_) |  ||\r\n" + //
+                                                "||   \\_/ \\___/ \\___\\___| |_|  \\___|\\___|_| |_|\\___/ \\__,_|  \\___/   _/ |\\___/ \\__, |\\___(_) ||\r\n" + //
+                                                "||                                                                 |__/       |___/         ||\r\n" + //
+                                                "\\============================================================================================/");
+                                                System.out.println("Pressione Enter para continuar...");
+                                                scanner.nextLine();  
+                                                limpar();
+                                                break;
+                                                
+                    
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
@@ -59,15 +81,24 @@ public class jogo {
             System.out.println("2. Contar História");
             System.out.println("3. Fechar Jogo");
             System.out.print("Escolha uma opção: ");
+        
         }
 
 
         private static void Historia(){ //historia do jogo
 
-            System.out.println("Esse jogo RPG ira se passar no universo ficticio de The Boys onde um super e contratado pela Vougth");
-            System.out.println("No entanto, seu sonho e participar do grupo principal de supers, Os setes, dessa maneira, esta disposto");
-            System.out.println("disposto a qualquer custo entrar. O super em sua investigaçao descobre que Os setes e a Vougth esta atras de um grupo");
-            System.out.println("que caça supers, entao, para ganhar respeito na empresa e entrar para Os setes o 'heroi' vai atras de m@tar os the boys.");
+            System.out.println("Esse jogo RPG ira se passar no universo ficticio de The Boys onde um super eh contratado pela Vougth");
+            System.out.println("No entanto, seu sonho sempre foi participar do grupo principal de supers, Os setes, dessa maneira, esta disposto");
+            System.out.println("a fazer qualquer coisa para entrar. O super em sua investigaçao descobre que Os setes e a Vougth estao atras de um grupo");
+            System.out.println("que caça supers, entao, para ganhar respeito na empresa e entrar para Os setes o 'heroi' vai atras de m@tar os...");
+            System.out.println("\n");
+            System.out.println(" _____ _   _ _____   ____   _____   ______   \r\n" + //
+                                "|_   _| | | | ____| | __ ) / _ \\ \\ / / ___|  \r\n" + //
+                                "  | | | |_| |  _|   |  _ \\| | | \\ V /\\___ \\  \r\n" + //
+                                "  | | |  _  | |___  | |_) | |_| || |  ___) | \r\n" + //
+                                "  |_| |_| |_|_____| |____/ \\___/ |_| |____(_)");
+            System.out.println("\n");
+                    
             System.out.println("Pressione Enter para voltar ao Menu...");
             scanner.nextLine();  
             limpar();
@@ -77,7 +108,13 @@ public class jogo {
         private static void iniciarJogo(){
 
 
-            System.out.println("------------ CRIE SEU JOGADOR --------------");
+            System.out.println("----------- _   _                       _                  _                                 _                       _            \r\n" + //
+                                "| | | | ___  _ __ __ _    __| | ___    ___ _ __(_) __ _ _ __   ___  ___ _   _    (_) ___   __ _  __ _  __| | ___  _ __ \r\n" + //
+                                "| |_| |/ _ \\| '__/ _` |  / _` |/ _ \\  / __| '__| |/ _` | '__| / __|/ _ \\ | | |   | |/ _ \\ / _` |/ _` |/ _` |/ _ \\| '__|\r\n" + //
+                                "|  _  | (_) | | | (_| | | (_| |  __/ | (__| |  | | (_| | |    \\__ \\  __/ |_| |   | | (_) | (_| | (_| | (_| | (_) | |   \r\n" + //
+                                "|_| |_|\\___/|_|  \\__,_|  \\__,_|\\___|  \\___|_|  |_|\\__,_|_|    |___/\\___|\\__,_|  _/ |\\___/ \\__, |\\__,_|\\__,_|\\___/|_|   \r\n" + //
+                                "                                                                               |__/       |___/                        \r\n" + //
+                                "--------------");
             Jogador jogador = new Jogador();
             jogador.criarPersonagem();
             System.out.println("//SEU PERSONGEM//\n " + jogador);
@@ -121,7 +158,11 @@ public class jogo {
             scanner.nextLine();
             limpar();
             
-
+            Combate combate = new Combate();
+            
+            // Iniciar o combate
+            combate.iniciarCombate();
+        
              primeiraHistoria();
 
 
@@ -147,17 +188,18 @@ public class jogo {
             System.out.println("           |__/                                                                                                |___/            ");
          
 
-            System.out.println("\n voce,entrou na Vougth e nao aguenta mais as missoes secundarias que lhe dao voce esta atras do seu desejo de entrar nos Setes, voce descubriu que eles estao atras de um grupo que extermina supers, voce querendo visibilade e respeito vai atras deles");
+            System.out.println("\n voce,entrou na Vougth e nao aguenta mais as missoes secundarias que lhe dao voce esta atras do seu desejo de entrar nos Setes, voce descubriu que eles estao atras de um grupo que extermina supers. Voce querendo visibilade e respeito vai atras deles.");
             System.out.println();
+            System.out.println("Voce com a cara e com a coragem vai atras deles...mas mal espera para uma super aventura.");
+            System.out.println("\n");
             System.out.println("Pressione Enter para continuar...");
             scanner.nextLine();
             limpar();
-
-            Combate combate =  new Combate();
-            combate.iniciarCombate();
-
-           }
-
+            
+           
+          
+        }
+           
         public void gamerover(){
 
             limpar();
@@ -178,3 +220,5 @@ public class jogo {
            
         }
     }
+
+
