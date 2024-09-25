@@ -1,3 +1,4 @@
+package jogo;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -5,7 +6,7 @@ import java.util.Random;
 
 
 public class Jogo {
-   private static final Jogo jogo = null;
+
 private static Scanner scanner = new Scanner (System.in);
     public static void main (String[] args){
      
@@ -124,8 +125,13 @@ private static Scanner scanner = new Scanner (System.in);
             scanner.nextLine();
             limpar();
 
+            System.out.println("   ____  _____ _     _____ ____ ___ ___  _   _ _____   ____  _____ _   _ ____    ____   ___  ____  _____ ____  _____ ____   \r\n" + //
+                                "  / ___|| ____| |   | ____/ ___|_ _/ _ \\| \\ | | ____| / ___|| ____| | | / ___|  |  _ \\ / _ \\|  _ \\| ____|  _ \\| ____/ ___|  \r\n" + //
+                                "  \\___ \\|  _| | |   |  _|| |    | | | | |  \\| |  _|   \\___ \\|  _| | | | \\___ \\  | |_) | | | | | | |  _| | |_) |  _| \\___ \\  \r\n" + //
+                                "   ___) | |___| |___| |__| |___ | | |_| | |\\  | |___   ___) | |___| |_| |___) | |  __/| |_| | |_| | |___|  _ <| |___ ___) | \r\n" + //
+                                "  |____/|_____|_____|_____\\____|___\\___/|_| \\_|_____| |____/|_____|\\___/|____/  |_|    \\___/|____/|_____|_| \\_\\_____|____/  ");
+            System.out.println("\n");
 
-            System.out.println("------------ SELECIONE SEUS PODERES --------------");
             Arma arma = new Arma();
             arma.adicionarArma(jogador.getDestreza(), jogador.getForca());
 
@@ -135,7 +141,12 @@ private static Scanner scanner = new Scanner (System.in);
             limpar();
 
 
-            System.out.println("------------ SELECIONE SUA ARMADURA --------------");
+            System.out.println("   ____  _____ _     _____ ____ ___ ___  _   _ _____   ____  _   _   _         _    ____  __  __    _    ____  _   _ ____      _    \r\n" + //
+                                "  / ___|| ____| |   | ____/ ___|_ _/ _ \\| \\ | | ____| / ___|| | | | / \\       / \\  |  _ \\|  \\/  |  / \\  |  _ \\| | | |  _ \\    / \\   \r\n" + //
+                                "  \\___ \\|  _| | |   |  _|| |    | | | | |  \\| |  _|   \\___ \\| | | |/ _ \\     / _ \\ | |_) | |\\/| | / _ \\ | | | | | | | |_) |  / _ \\  \r\n" + //
+                                "   ___) | |___| |___| |__| |___ | | |_| | |\\  | |___   ___) | |_| / ___ \\   / ___ \\|  _ <| |  | |/ ___ \\| |_| | |_| |  _ <  / ___ \\ \r\n" + //
+                                "  |____/|_____|_____|_____\\____|___\\___/|_| \\_|_____| |____/ \\___/_/   \\_\\ /_/   \\_\\_| \\_\\_|  |_/_/   \\_\\____/ \\___/|_| \\_\\/_/   \\_\\");
+            System.out.println("\n");
             Armadura armadura = new Armadura();
             armadura.adicionarArmadura(jogador.getConstituicao());
 
@@ -158,14 +169,19 @@ private static Scanner scanner = new Scanner (System.in);
             scanner.nextLine();
             limpar();
             
-            Combate combate = new Combate();
+            
+            primeiraHistoria();
+
+            Adversario primeiroAdversario = Adversario.gerarAdversario(0);
+
+            Turnos turno = new Turnos();
+            turno.adversario = primeiroAdversario;
+            turno.jogador = jogador;
+            
+            Combate combate = new Combate(jogador, primeiroAdversario, turno, vida);
             
             // Iniciar o combate
             combate.iniciarCombate();
-        
-             primeiraHistoria();
-
-
         }   
        
         private static void limpar(){
@@ -173,7 +189,6 @@ private static Scanner scanner = new Scanner (System.in);
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         }
 
-        private static Jogador jogador;
 
         private static void primeiraHistoria(){
 
@@ -220,5 +235,3 @@ private static Scanner scanner = new Scanner (System.in);
            
         }
     }
-
-
