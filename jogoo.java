@@ -1,4 +1,3 @@
-package jogo;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -177,11 +176,46 @@ private static Scanner scanner = new Scanner (System.in);
             Turnos turno = new Turnos();
             turno.adversario = primeiroAdversario;
             turno.jogador = jogador;
-            
+            System.out.println("E o primeiro adversario para o combate eh: ");
+            System.out.println(primeiroAdversario);
+
             Combate combate = new Combate(jogador, primeiroAdversario, turno, vida);
             
             // Iniciar o combate
             combate.iniciarCombate();
+
+            Adversario segundoAdversario = Adversario.gerarAdversario(0);
+
+            turno.adversario = segundoAdversario;
+            turno.jogador = jogador;
+            System.out.println("O segundo adversario chegou: ");
+            System.out.println(segundoAdversario);
+
+            Adversario terceiroAdversario = Adversario.gerarAdversario(0);
+            turno.adversario = terceiroAdversario;
+            turno.jogador = jogador;
+            System.out.println("Voce encontrou o terceiro adversario!");
+            System.out.println(terceiroAdversario);
+
+            Adversario quartoAdversario = Adversario.gerarAdversario(0);
+            turno.adversario = quartoAdversario;
+            turno.jogador = jogador;
+            System.out.println("Voce encontrou o quarto adversario!");
+            System.out.println(quartoAdversario);
+
+            Adversario quintoAdversario = Adversario.gerarAdversario(1);
+            turno.adversario = quintoAdversario;
+            turno.jogador = jogador;
+            System.out.println("Voce encontrou o quintoadversario!");
+            System.out.println(quintoAdversario);
+
+            Adversario sextoAdversario = Adversario.gerarAdversario(2);
+            turno.adversario = sextoAdversario;
+            turno.jogador = jogador;
+            System.out.println("Voce encontrou o ultimo e mais perigoso adversario!");
+            System.out.println(sextoAdversario);
+
+
         }   
        
         private static void limpar(){
