@@ -1,0 +1,13 @@
+package jogo;
+
+public class Pocao {
+        private int pocoesDisponiveis;
+    
+        public Pocao(int pocoesDisponiveis) {
+            this.pocoesDisponiveis = pocoesDisponiveis;
+        }
+    
+        public int getPocoesDisponiveis() {
+            return pocoesDisponiveis;
+        }
+    }
